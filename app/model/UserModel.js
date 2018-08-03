@@ -1,5 +1,6 @@
+'use strict';
 module.exports = app => {
-  const { INTEGER, STRING, DATE, UUID, UUIDV4 } = app.Sequelize;
+  const { STRING } = app.Sequelize;
   const user = app.model.define('user', {
     // 用户id
     userid: {
@@ -8,13 +9,13 @@ module.exports = app => {
       primaryKey: true,
     },
     userpassword: {
-      type: STRING, 
-      allowNull: false
+      type: STRING,
+      allowNull: false,
     },
     userrole: {
       type: STRING,
       allowNull: false,
-      defaultValue: "0",
+      defaultValue: '0',
     },
     usersex: {
       type: STRING,
@@ -30,15 +31,13 @@ module.exports = app => {
     },
     userphone: {
       type: STRING,
-      allowNull: true
+      allowNull: true,
     },
   }, {
     timestamps: true,
     createAt: true,
-    updateTime: 'updateTimestamp'
+    updateTime: 'updateTimestamp',
   });
-
-
 
   user.beforeBulkUpdate(user => {
     user.attributes.updateTime = new Date();
@@ -46,4 +45,4 @@ module.exports = app => {
   });
   app.model.user = user;
   return user;
-}
+};
