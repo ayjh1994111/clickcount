@@ -25,10 +25,10 @@ module.exports = app => {
     createAt: true,
     updateTime: 'updateTimestamp',
   });
-  log.beforBulkUpdate(log => {
-    log.attributes.updateTime = new Date();
-    return log;
-  });
-  log.model.log = log;
+  // log.beforBulkUpdate(log => {
+  //   log.attributes.updateTime = new Date();
+  //   return log;
+  // });
+  // log.model.log = log;
   return log;
 };

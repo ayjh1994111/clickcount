@@ -2,20 +2,25 @@
 
 module.exports = appInfo => {
   const config = exports = {};
-  appInfo.name = 'xxq';
-  // use for cookie sign key, should change to your own and keep security
-  config.keys = appInfo.name + '_17801171929';
-  config.view = {
-    defaultViewEngine: 'nunjucks',
-    mapping: {
-      '.tpl': 'nunjucks',
-    },
-  }
-  // add your config here
+
+  config.keys = appInfo.name + '_Yid';
+
   config.middleware = [];
-  config.news = {
-    pageSize: 5,
-    serverUrl: 'http://hacker-news.firebaseio.com/v0',
+
+  config.sequelize = {
+    dialect: 'mysql',
+    database: 'egg_db',
+    host: 'localhost',
+    port: '3306',
+    username: 'root',
+    password: '123456',
+    timezone: '+08:00',
+  }
+
+  config.security = {
+    csrf: {
+      enable: false
+    }
   }
   return config;
 };

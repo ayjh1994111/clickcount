@@ -39,10 +39,10 @@ module.exports = app => {
     updateTime: 'updateTimestamp',
   });
 
-  user.beforeBulkUpdate(user => {
-    user.attributes.updateTime = new Date();
-    return user;
-  });
-  app.model.user = user;
+  // user.beforeBulkUpdate(user => {
+  //   user.attributes.updateTime = new Date();
+  //   return user;
+  // });
+  // app.model.user = user;
   return user;
 };
